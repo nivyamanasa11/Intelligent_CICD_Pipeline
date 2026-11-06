@@ -1,33 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Intelligent CI/CD Pipeline</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Intelligent CI/CD Pipeline</h1>
-        <p class="subtitle">Automated Build, Test and Deployment Platform</p>
 
-        <div class="status-card">
-            <h2>Application Status</h2>
-            <p id="status">Checking status...</p>
-            <button onclick="checkStatus()">Check Pipeline Status</button>
-        </div>
+<div class="container">
 
-        <div class="info-card">
-            <h2>Pipeline Stages</h2>
-            <div class="stages">
-                <div class="stage">1. Code</div>
-                <div class="stage">2. Build</div>
-                <div class="stage">3. Test</div>
-                <div class="stage">4. Deploy</div>
-            </div>
-        </div>
+    <h1>Intelligent CI/CD Pipeline</h1>
+
+    <p class="subtitle">
+        Automated Build, Test and Deployment Platform
+    </p>
+
+
+    <!-- Application Status -->
+
+    <div class="status-card">
+
+        <h2>Application Status</h2>
+
+        <p id="status">
+            Checking application status...
+        </p>
+
+        <button onclick="checkStatus()">
+            Check Pipeline Status
+        </button>
+
     </div>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <!-- Pipeline -->
+
+    <div class="info-card">
+
+        <h2>Pipeline Stages</h2>
+
+        <p class="instruction">
+            Click any stage to view pipeline information
+        </p>
+
+
+        <div class="stages">
+
+            <button class="stage"
+                    onclick="showStage('code')">
+
+                <span>1</span>
+                Code
+
+            </button>
+
+
+            <button class="stage"
+                    onclick="showStage('build')">
+
+                <span>2</span>
+                Build
+
+            </button>
+
+
+            <button class="stage"
+                    onclick="showStage('test')">
+
+                <span>3</span>
+                Test
+
+            </button>
+
+
+            <button class="stage"
+                    onclick="showStage('deploy')">
+
+                <span>4</span>
+                Deploy
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Backend Information -->
+
+    <div id="details"
+         class="details-card">
+
+        <h2>Pipeline Information</h2>
+
+        <p>
+            Select a pipeline stage above.
+        </p>
+
+    </div>
+
+
+    <!-- Architecture -->
+
+    <div class="architecture-card">
+
+        <h2>CI/CD Flow</h2>
+
+        <div class="flow">
+
+            <div>Code</div>
+
+            <span>→</span>
+
+            <div>Build</div>
+
+            <span>→</span>
+
+            <div>Test</div>
+
+            <span>→</span>
+
+            <div>Deploy</div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
+
 </html>
