@@ -37,10 +37,8 @@ async function checkStatus() {
 
 function openCode() {
 
-    window.open(
-        "https://github.com/nivyamanasa11/Intelligent_CICD_Pipeline",
-        "_blank"
-    );
+    window.location.href =
+        "https://github.com/nivyamanasa11/Intelligent_CICD_Pipeline";
 
 }
 
@@ -51,10 +49,8 @@ function openCode() {
 
 function openBuild() {
 
-    window.open(
-        "https://github.com/nivyamanasa11/Intelligent_CICD_Pipeline/actions",
-        "_blank"
-    );
+    window.location.href =
+        "https://github.com/nivyamanasa11/Intelligent_CICD_Pipeline/actions";
 
 }
 
@@ -119,9 +115,7 @@ function openTest() {
 
 function openDeploy() {
 
-    window.open(
-        "https://intelligent-cicd-pipeline.onrender.com/",
-        "_blank"
-    );
+    window.location.href =
+        "https://intelligent-cicd-pipeline.onrender.com/";
 
 }
