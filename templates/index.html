@@ -21,15 +21,14 @@
         Automated Build, Test and Deployment Platform
     </p>
 
-
-    <!-- Application Status -->
+    <!-- APPLICATION STATUS -->
 
     <div class="status-card">
 
         <h2>Application Status</h2>
 
         <p id="status">
-            Checking application status...
+            Checking status...
         </p>
 
         <button onclick="checkStatus()">
@@ -39,7 +38,7 @@
     </div>
 
 
-    <!-- Pipeline -->
+    <!-- PIPELINE STAGES -->
 
     <div class="info-card">
 
@@ -52,83 +51,86 @@
 
         <div class="stages">
 
-            <button class="stage"
-                    onclick="showStage('code')">
+            <!-- CODE -->
 
-                <span>1</span>
-                Code
+            <div class="stage"
+                 onclick="openCode()">
 
-            </button>
+                <div class="number">
+                    1
+                </div>
 
+                <div>
+                    Code
+                </div>
 
-            <button class="stage"
-                    onclick="showStage('build')">
-
-                <span>2</span>
-                Build
-
-            </button>
+            </div>
 
 
-            <button class="stage"
-                    onclick="showStage('test')">
+            <!-- BUILD -->
 
-                <span>3</span>
-                Test
+            <div class="stage"
+                 onclick="openBuild()">
 
-            </button>
+                <div class="number">
+                    2
+                </div>
+
+                <div>
+                    Build
+                </div>
+
+            </div>
 
 
-            <button class="stage"
-                    onclick="showStage('deploy')">
+            <!-- TEST -->
 
-                <span>4</span>
-                Deploy
+            <div class="stage"
+                 onclick="openTest()">
 
-            </button>
+                <div class="number">
+                    3
+                </div>
+
+                <div>
+                    Test
+                </div>
+
+            </div>
+
+
+            <!-- DEPLOY -->
+
+            <div class="stage"
+                 onclick="openDeploy()">
+
+                <div class="number">
+                    4
+                </div>
+
+                <div>
+                    Deploy
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
 
-    <!-- Backend Information -->
+    <!-- PIPELINE INFORMATION -->
 
-    <div id="details"
-         class="details-card">
+    <div id="pipelineInfo"
+         class="info-card">
 
-        <h2>Pipeline Information</h2>
+        <h2>
+            CI/CD Flow
+        </h2>
 
         <p>
-            Select a pipeline stage above.
+            Code → Build → Test → Deploy
         </p>
-
-    </div>
-
-
-    <!-- Architecture -->
-
-    <div class="architecture-card">
-
-        <h2>CI/CD Flow</h2>
-
-        <div class="flow">
-
-            <div>Code</div>
-
-            <span>→</span>
-
-            <div>Build</div>
-
-            <span>→</span>
-
-            <div>Test</div>
-
-            <span>→</span>
-
-            <div>Deploy</div>
-
-        </div>
 
     </div>
 

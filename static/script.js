@@ -3,8 +3,7 @@ async function checkStatus() {
     const statusElement =
         document.getElementById("status");
 
-    statusElement.textContent =
-        "Checking...";
+    statusElement.textContent = "Checking...";
 
     try {
 
@@ -17,174 +16,112 @@ async function checkStatus() {
         statusElement.textContent =
             data.message;
 
-        statusElement.style.color =
-            "green";
+        statusElement.style.color = "green";
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         statusElement.textContent =
             "Application is not responding.";
 
-        statusElement.style.color =
-            "red";
+        statusElement.style.color = "red";
+
     }
 }
 
 
-async function showStage(stage) {
+/* =========================
+   1. CODE
+   ========================= */
 
-    const details =
-        document.getElementById("details");
+function openCode() {
 
-    details.innerHTML =
-        "<h2>Loading...</h2>";
+    window.open(
+        "https://github.com/nivyamanasa11/Intelligent_CICD_Pipeline",
+        "_blank"
+    );
 
-    try {
-
-        const response =
-            await fetch("/api/pipeline");
-
-        const data =
-            await response.json();
-
-        const information =
-            data[stage];
+}
 
 
-        if (stage === "code") {
+/* =========================
+   2. BUILD
+   ========================= */
 
-            details.innerHTML = `
-                <h2>1. Code</h2>
+function openBuild() {
 
-                <div class="success">
-                    ✓ Source Code Ready
-                </div>
+    window.open(
+        "https://github.com/nivyamanasa11/Intelligent_CICD_Pipeline/actions",
+        "_blank"
+    );
 
-                <p>
-                    ${information.message}
-                </p>
-
-                <p>
-                    <b>Repository:</b>
-                    ${information.repository}
-                </p>
-
-                <a href="${information.repository}"
-                   target="_blank">
-                    Open GitHub Repository
-                </a>
-            `;
-        }
+}
 
 
-        else if (stage === "build") {
+/* =========================
+   3. TEST
+   ========================= */
 
-            details.innerHTML = `
-                <h2>2. Build</h2>
+function openTest() {
 
-                <div class="success">
-                    ✓ Build Successful
-                </div>
+    const info =
+        document.getElementById("pipelineInfo");
 
-                <p>
-                    ${information.message}
-                </p>
+    info.innerHTML = `
 
-                <p>
-                    <b>Build System:</b>
-                    GitHub Actions
-                </p>
+        <h2>3. Test</h2>
 
-                <a href="${information.actions}"
-                   target="_blank">
-                    Open GitHub Actions
-                </a>
-            `;
-        }
+        <p>
+            Automated application testing is performed
+            using Python and Docker.
+        </p>
 
+        <div class="test-box">
 
-        else if (stage === "test") {
+            <h3>Docker Test Environment</h3>
 
-            details.innerHTML = `
-                <h2>3. Test</h2>
-
-                <div class="success">
-                    ✓ Testing Successful
-                </div>
-
-                <p>
-                    ${information.message}
-                </p>
-
-                <p>
-                    <b>Docker Image:</b>
-                    ${information.docker_image}
-                </p>
-
-                <p>
-                    <b>Container:</b>
-                    ${information.container}
-                </p>
-
-                <p>
-                    <b>Testing:</b>
-                    Automated pytest tests
-                </p>
-            `;
-        }
-
-
-        else if (stage === "deploy") {
-
-            details.innerHTML = `
-                <h2>4. Deploy</h2>
-
-                <div class="success">
-                    ✓ Deployment Successful
-                </div>
-
-                <p>
-                    ${information.message}
-                </p>
-
-                <p>
-                    <b>Deployment Platform:</b>
-                    Render
-                </p>
-
-                <p>
-                    <b>Webhook:</b>
-                    ${information.webhook}
-                </p>
-
-                <div class="links">
-
-                    <a href="${information.render_dashboard}"
-                       target="_blank">
-                       Open Render Dashboard
-                    </a>
-
-                    <a href="${information.application}"
-                       target="_blank">
-                       Open Deployed Application
-                    </a>
-
-                    <a href="${information.health_check}"
-                       target="_blank">
-                       Open Health Check
-                    </a>
-
-                </div>
-            `;
-        }
-
-    } catch (error) {
-
-        details.innerHTML = `
-            <h2>Error</h2>
             <p>
-                Unable to load pipeline information.
+                <b>Docker Image:</b>
+                intelligent-cicd:latest
             </p>
-        `;
-    }
+
+            <p>
+                <b>Container:</b>
+                cicd-app
+            </p>
+
+            <p>
+                <b>Port:</b>
+                5000:5000
+            </p>
+
+            <p>
+                <b>Test Status:</b>
+                Passed
+            </p>
+
+        </div>
+
+        <p>
+            The application is tested inside a
+            containerized environment.
+        </p>
+
+    `;
+
+}
+
+
+/* =========================
+   4. DEPLOY
+   ========================= */
+
+function openDeploy() {
+
+    window.open(
+        "https://intelligent-cicd-pipeline.onrender.com/",
+        "_blank"
+    );
+
 }
